@@ -181,7 +181,7 @@ class AliPay():
     def verify_notify(self, data, signature, alipay_public_key_path):
         # 排序后的字符串
         unsigned_items = self.__ordered_data(data)
-        message = "&".join("{}={}".format(k, v) for k, v in unsigned_items)
+        message = u"&".join(u"{}={}".format(k, v) for k, v in unsigned_items)
 
         # 开始计算签名
         key = RSA.importKey(open(alipay_public_key_path).read())
